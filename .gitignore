@@ -1,2 +1,5 @@
 .idea/
 /starter_code/target/
+
+# Compiled class file
+*.class
