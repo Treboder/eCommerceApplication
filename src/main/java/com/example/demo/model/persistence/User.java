@@ -36,8 +36,6 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 
-	// ToDo add salt
-	
 	public Cart getCart() {
 		return cart;
 	}
