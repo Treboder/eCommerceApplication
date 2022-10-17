@@ -50,13 +50,14 @@ public class UserController {
 		Cart cart = new Cart();
 		cartRepository.save(cart);
 		user.setCart(cart);
-
+		// perform some basic pwd validation
 		if (createUserRequest.getPassword() == null || createUserRequest.getPassword().length() < 7 ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
+			// ToDo: add log.error
 			return ResponseEntity.badRequest().build();
 		}
+		// encode the password using bcrypt and store the credentials to db (including hashed password)
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
-
 		userRepository.save(user);
 		return ResponseEntity.ok(user);
 	}
