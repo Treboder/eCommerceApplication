@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -26,74 +27,59 @@ public class ItemControllerTest {
 
     @Mock
     private ItemRepository itemRepository;
-    @Before
-    public void setup(){
-
-        when(itemRepository.findById(1L)).thenReturn(Optional.of(TestHelperMethods.createItem(1)));
-        when(itemRepository.findAll()).thenReturn(TestHelperMethods.createItems());
-        when(itemRepository.findByName("item")).thenReturn(Arrays.asList(TestHelperMethods.createItem(1), TestHelperMethods.createItem(2)));
-
-    }
 
     @Test
-    public void verify_getItems(){
+    public void testGetItemList() {
+        // create a list with one demo item and make the repo return the demo item list
+        List<Item> items = TestHelperMethods.createListWithOneDemoItem();
+        Item demoItem = items.get(0);
+        when(itemRepository.findAll()).thenReturn(items);
+        // trigger controller function and check for ok-request
         ResponseEntity<List<Item>> response = itemController.getItems();
-
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
-        List<Item> items = response.getBody();
-
-        assertEquals(TestHelperMethods.createItems(), items);
-
-        verify(itemRepository , times(1)).findAll();
+        // extract actual item list from response and compare to initial list
+        List<Item> actualItems = response.getBody();
+        assertNotNull(actualItems);
+        assertEquals(1, actualItems.size());
+        assertEquals(demoItem, actualItems.get(0));
     }
 
     @Test
-    public void verify_getItemById(){
-
-        ResponseEntity<Item> response = itemController.getItemById(1L);
+    public void testGetItemById() {
+        // create the demo item and make the repo return the demo item
+        Item demoItem = TestHelperMethods.createDemoItem();
+        when(itemRepository.findById(demoItem.getId())).thenReturn(java.util.Optional.of(demoItem));
+        // trigger controller function and check for ok-request
+        ResponseEntity<Item> response = itemController.getItemById(demoItem.getId());
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
-
-        Item item = response.getBody();
-        assertEquals(TestHelperMethods.createItem(1L), item);
-
-        verify(itemRepository, times(1)).findById(1L);
+        // extract actual demo item from response and compare to initial demo item
+        Item actualItem = response.getBody();
+        assertEquals(demoItem, actualItem);
+        assertNotNull(actualItem);
+        assertEquals(demoItem.getName(), actualItem.getName());
+        assertEquals(demoItem.getId(), actualItem.getId());
+        assertEquals(demoItem.getDescription(), actualItem.getDescription());
     }
 
     @Test
-    public void verify_getItemByIdInvalid(){
-
-        ResponseEntity<Item> response = itemController.getItemById(10L);
-        assertNotNull(response);
-        assertEquals(404, response.getStatusCodeValue());
-
-        assertNull(response.getBody());
-        verify(itemRepository, times(1)).findById(10L);
-    }
-
-    @Test
-    public void verify_getItemByName(){
-        ResponseEntity<List<Item>> response = itemController.getItemsByName("item");
-
+    public void testGetItemsByName() {
+        // create a list with one demo item and make the repo return the demo item list
+        List<Item> itemList = TestHelperMethods.createListWithOneDemoItem();
+        Item demoItem = itemList.get(0);
+        when(itemRepository.findByName(demoItem.getName())).thenReturn(itemList);
+        // trigger controller function and check for ok-request
+        ResponseEntity<List<Item>> response = itemController.getItemsByName(demoItem.getName());
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
-        List<Item> items = Arrays.asList(TestHelperMethods.createItem(1), TestHelperMethods.createItem(2));
-
-        assertEquals(TestHelperMethods.createItems(), items);
-
-        verify(itemRepository , times(1)).findByName("item");
+        // extract actual demo item from response and compare to initial demo item
+        Item actualItem = response.getBody().get(0);
+        assertEquals(demoItem, actualItem);
+        assertNotNull(actualItem);
+        assertEquals(demoItem.getName(), actualItem.getName());
+        assertEquals(demoItem.getId(), actualItem.getId());
+        assertEquals(demoItem.getDescription(), actualItem.getDescription());
     }
 
-    @Test
-    public void verify_getItemByNameInvalid(){
-        ResponseEntity<List<Item>> response = itemController.getItemsByName("invalid name");
-
-        assertNotNull(response);
-        assertEquals(404, response.getStatusCodeValue());
-
-        assertNull(response.getBody());
-
-        verify(itemRepository , times(1)).findByName("invalid name");
-    }
 }
