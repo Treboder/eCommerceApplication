@@ -3,7 +3,6 @@ package com.example.demo;
 import com.example.demo.controllers.ItemController;
 import com.example.demo.model.persistence.Item;
 import com.example.demo.model.persistence.repositories.ItemRepository;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -11,10 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -30,8 +26,8 @@ public class ItemControllerTest {
 
     @Test
     public void testGetItemList() {
-        // create a list with one demo item and make the repo return the demo item list
-        List<Item> items = TestHelperMethods.createListWithOneDemoItem();
+        // create a list with one demo item and make the (mock) repo return the demo item list
+        List<Item> items = TestUtils.createListWithOneDemoItem();
         Item demoItem = items.get(0);
         when(itemRepository.findAll()).thenReturn(items);
         // trigger controller function and check for ok-request
@@ -47,8 +43,8 @@ public class ItemControllerTest {
 
     @Test
     public void testGetItemById() {
-        // create the demo item and make the repo return the demo item
-        Item demoItem = TestHelperMethods.createDemoItem();
+        // create the demo item and make the (mock) repo return the demo item
+        Item demoItem = TestUtils.createDemoItem();
         when(itemRepository.findById(demoItem.getId())).thenReturn(java.util.Optional.of(demoItem));
         // trigger controller function and check for ok-request
         ResponseEntity<Item> response = itemController.getItemById(demoItem.getId());
@@ -65,8 +61,8 @@ public class ItemControllerTest {
 
     @Test
     public void testGetItemsByName() {
-        // create a list with one demo item and make the repo return the demo item list
-        List<Item> itemList = TestHelperMethods.createListWithOneDemoItem();
+        // create a list with one demo item and make the (mock) repo return the demo item list
+        List<Item> itemList = TestUtils.createListWithOneDemoItem();
         Item demoItem = itemList.get(0);
         when(itemRepository.findByName(demoItem.getName())).thenReturn(itemList);
         // trigger controller function and check for ok-request

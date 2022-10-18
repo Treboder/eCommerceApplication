@@ -8,7 +8,6 @@ import com.example.demo.model.persistence.repositories.CartRepository;
 import com.example.demo.model.persistence.repositories.ItemRepository;
 import com.example.demo.model.persistence.repositories.UserRepository;
 import com.example.demo.model.requests.ModifyCartRequest;
-import org.hibernate.query.criteria.internal.ValueHandlerFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,12 +43,12 @@ public class CartControllerTest {
 
     @Before
     public void setup(){
-        // define initial test objects and make the repos respond with them accordingly
-        user = TestHelperMethods.createUserWithCartIncludingOneDemoItem();
-        item = TestHelperMethods.createDemoItem();
-        cart = TestHelperMethods.createCartWithOneDemoItemForUser(user);
+        // define initial test objects and make the (mock) repos respond with them accordingly
+        user = TestUtils.createUserWithCartIncludingOneDemoItem();
+        item = TestUtils.createDemoItem();
+        cart = TestUtils.createCartWithOneDemoItemForUser(user);
         when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
-        when(itemRepository.findById(any())).thenReturn(Optional.of(TestHelperMethods.createDemoItem()));
+        when(itemRepository.findById(any())).thenReturn(Optional.of(TestUtils.createDemoItem()));
     }
 
     @Test

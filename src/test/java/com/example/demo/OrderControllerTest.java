@@ -38,9 +38,9 @@ public class OrderControllerTest {
 
     @Before
     public void setup(){
-        // define initial test objects and make the repos respond with them accordingly
-        user = TestHelperMethods.createUserWithCartIncludingOneDemoItem();
-        order = TestHelperMethods.createDemoOrder();
+        // define initial test objects and make the (mock) repos respond with them accordingly
+        user = TestUtils.createUserWithCartIncludingOneDemoItem();
+        order = TestUtils.createDemoOrder();
         orderList = Arrays.asList(order);
         when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
         when(orderRepository.findByUser(any())).thenReturn(orderList);

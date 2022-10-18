@@ -27,20 +27,20 @@ public class UserControllerTest {
     @Before
     public void setUp(){
         userController = new UserController();
-        TestHelperMethods.injectObjects(userController, "userRepository", userRepository);
-        TestHelperMethods.injectObjects(userController, "cartRepository", cartRepository);
-        TestHelperMethods.injectObjects(userController, "bCryptPasswordEncoder", encoder);
+        TestUtils.injectObjects(userController, "userRepository", userRepository);
+        TestUtils.injectObjects(userController, "cartRepository", cartRepository);
+        TestUtils.injectObjects(userController, "bCryptPasswordEncoder", encoder);
     }
 
     @Test
     public void testCreateUser(){
         // manipulate the hashing feature so that the result is known beforehand
-        when(encoder.encode(TestHelperMethods.PASSWORD)).thenReturn(TestHelperMethods.PASSWORD_HASHED);
+        when(encoder.encode(TestUtils.PASSWORD)).thenReturn(TestUtils.PASSWORD_HASHED);
         // create a user with specs above and fetch response
         CreateUserRequest request = new CreateUserRequest();
-        request.setUsername(TestHelperMethods.USER_NAME);
-        request.setPassword(TestHelperMethods.PASSWORD);
-        request.setConfirmPassword(TestHelperMethods.PASSWORD);
+        request.setUsername(TestUtils.USER_NAME);
+        request.setPassword(TestUtils.PASSWORD);
+        request.setConfirmPassword(TestUtils.PASSWORD);
         // send the request and check for proper ok-response
         ResponseEntity<User> response = userController.createUser(request);
         assertNotNull(response);
@@ -49,14 +49,14 @@ public class UserControllerTest {
         User actualUser = response.getBody();
         assertNotNull(actualUser);
         assertEquals(0, actualUser.getId());
-        assertEquals(TestHelperMethods.USER_NAME, actualUser.getUsername());
-        assertEquals(TestHelperMethods.PASSWORD_HASHED, actualUser.getPassword());
+        assertEquals(TestUtils.USER_NAME, actualUser.getUsername());
+        assertEquals(TestUtils.PASSWORD_HASHED, actualUser.getPassword());
     }
 
     @Test
     public void testFindUserById(){
         // create a requestedUser object and tell the requestedUser repository mock to respond with it
-        User requestedUser = TestHelperMethods.createUser();
+        User requestedUser = TestUtils.createUser();
         when(userRepository.findById(requestedUser.getId())).thenReturn(Optional.of(requestedUser));
         // send the request and check for proper ok-response
         ResponseEntity<User> response = userController.findById(requestedUser.getId());
@@ -73,7 +73,7 @@ public class UserControllerTest {
     @Test
     public void testFindUserByName(){
         // create a requestedUser object and tell the requestedUser repository mock to respond with it
-        User requestedUser = TestHelperMethods.createUser();
+        User requestedUser = TestUtils.createUser();
         when(userRepository.findByUsername(requestedUser.getUsername())).thenReturn(requestedUser);
         // send the request and check for proper ok-response
         ResponseEntity<User> response = userController.findByUserName(requestedUser.getUsername());
