@@ -57,7 +57,7 @@ public class OrderControllerTest {
         assertEquals(orderList.size(), actualOrderList.size());
         UserOrder actualOrder = orderList.get(0);
         assertEquals(order.getId(), actualOrder.getId());
-        assertEquals(order.getTotal(), actualOrder.getTotal()); // ToDo: Round total value to max two decimals
+        assertEquals(order.getTotal(), actualOrder.getTotal());
     }
 
     @Test

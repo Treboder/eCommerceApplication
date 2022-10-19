@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 public class UserControllerTest {
 
-    // ToDo: Find out why attempts to use @InjectMocks and @Mock (as used in other tests) did not work so far
+    // ToDo: Use annotations @InjectMocks and @Mock (as used in other tests)
     private UserController userController;
     private UserRepository userRepository = mock(UserRepository.class);
     private CartRepository cartRepository = mock(CartRepository.class);
