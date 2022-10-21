@@ -15,6 +15,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,7 +70,7 @@ public class CartControllerTest {
         assertNotNull(actualCart);
         assertEquals(cart.getId(), actualCart.getId());
         assertEquals(user, actualCart.getUser());
-        // ToDo: fix floating point bug for -> assertEquals(new BigDecimal("3.98"),  actualCart.getTotal());
+        assertEquals(new BigDecimal("3.98"),  actualCart.getTotal());
         // get the item list from cart and compare with initial item list
         List<Item> actualItems = actualCart.getItems();
         assertNotNull(actualItems);
@@ -93,7 +96,7 @@ public class CartControllerTest {
         assertNotNull(actualCart);
         assertEquals(cart.getId(), actualCart.getId());
         assertEquals(user, actualCart.getUser());
-        // ToDo: fix floating point bug for -> assertEquals(new BigDecimal("0.00"),  actualCart.getTotal());
+        assertEquals(new BigDecimal("0.00"),  actualCart.getTotal());
         // get the item list from cart and compare with initial item list
         List<Item> actualItems = actualCart.getItems();
         assertNotNull(actualItems);

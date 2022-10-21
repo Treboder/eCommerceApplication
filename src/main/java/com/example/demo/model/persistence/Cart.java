@@ -1,6 +1,7 @@
 package com.example.demo.model.persistence;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +39,7 @@ public class Cart {
 	@JsonProperty
 	private BigDecimal total;
 	
-	public BigDecimal getTotal() {
-		return total;
-	}
+	public BigDecimal getTotal() { return total.setScale(2 , RoundingMode.CEILING); }
 
 	public void setTotal(BigDecimal total) {
 		this.total = total;

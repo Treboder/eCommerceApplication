@@ -57,7 +57,7 @@ public class OrderControllerTest {
         assertEquals(orderList.size(), actualOrderList.size());
         UserOrder actualOrder = orderList.get(0);
         assertEquals(order.getId(), actualOrder.getId());
-        assertEquals(order.getTotal(), actualOrder.getTotal()); // ToDo: Round total value to max two decimals
+        assertEquals(order.getTotal(), actualOrder.getTotal());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class OrderControllerTest {
         // fetch order from response and compare with requested order
         UserOrder actualOrder = response.getBody();
         assertNotNull(actualOrder);
-        // assertEquals(order.getId(), actualOrder.getId()); ToDo: Check why returned id of returned order is null
+        // assertEquals(order.getId(), actualOrder.getId()); ToDo: Check why id of returned order is null
         assertEquals(order.getItems(), actualOrder.getItems());
         assertEquals(order.getTotal(), actualOrder.getTotal());
     }
