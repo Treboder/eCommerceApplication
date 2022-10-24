@@ -2147,3 +2147,30 @@ java.lang.StackOverflowError: null
 2022-10-24 11:14:19.088  INFO 10076 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-10-24 11:14:19.091  INFO 10076 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-10-24 11:14:19.092  INFO 10076 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-10-24 14:20:49.435  INFO 2088 --- [main] com.example.demo.ECommerceApplication    : Starting ECommerceApplication on Tower with PID 2088 (D:\MyDrive\2_Workspace\Udacity\JavaWebDeveloper\eCommerceApplication\target\classes started by User in D:\MyDrive\2_Workspace\Udacity\JavaWebDeveloper\eCommerceApplication)
+2022-10-24 14:20:49.437  INFO 2088 --- [main] com.example.demo.ECommerceApplication    : No active profile set, falling back to default profiles: default
+2022-10-24 14:20:49.879  INFO 2088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-24 14:20:49.923  INFO 2088 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37ms. Found 4 JPA repository interfaces.
+2022-10-24 14:20:50.203  INFO 2088 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-24 14:20:50.325  INFO 2088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2022-10-24 14:20:50.331  INFO 2088 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-10-24 14:20:50.331  INFO 2088 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2022-10-24 14:20:50.380  INFO 2088 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-10-24 14:20:50.380  INFO 2088 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 910 ms
+2022-10-24 14:20:50.463  INFO 2088 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-10-24 14:20:50.496  INFO 2088 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2022-10-24 14:20:50.564  INFO 2088 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-10-24 14:20:50.617  INFO 2088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-10-24 14:20:50.683  INFO 2088 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-10-24 14:20:50.689  INFO 2088 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-10-24 14:20:51.129  INFO 2088 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-10-24 14:20:51.134  INFO 2088 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-10-24 14:20:51.384  WARN 2088 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-24 14:20:51.537  INFO 2088 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7affee54, org.springframework.security.web.context.SecurityContextPersistenceFilter@3dcbbbc, org.springframework.security.web.header.HeaderWriterFilter@6fdaef04, org.springframework.web.filter.CorsFilter@96075c0, org.springframework.security.web.authentication.logout.LogoutFilter@309e3f34, com.example.demo.security.JWTAuthenticationFilter@2337bf27, com.example.demo.security.JWTAuthenticationVerificationFilter@4679554d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15bb8ed5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2aac6fa7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43719e98, org.springframework.security.web.session.SessionManagementFilter@3cacc87, org.springframework.security.web.access.ExceptionTranslationFilter@2d8087da, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b10f60e]
+2022-10-24 14:20:51.569  INFO 2088 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-10-24 14:20:51.658  INFO 2088 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2022-10-24 14:20:51.659  INFO 2088 --- [main] com.example.demo.ECommerceApplication    : Started ECommerceApplication in 2.428 seconds (JVM running for 4.168)
+2022-10-24 14:21:18.558  INFO 2088 --- [http-nio-9090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-24 14:21:18.558  INFO 2088 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-10-24 14:21:18.562  INFO 2088 --- [http-nio-9090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-10-24 14:21:29.450  INFO 2088 --- [http-nio-9090-exec-6] c.e.demo.controllers.CartController      : User created with name=robert
