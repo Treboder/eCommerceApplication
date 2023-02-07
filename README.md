@@ -78,7 +78,7 @@ POST /login
 
 and that should, if those are valid credentials, return a 200 OK with an Authorization header which looks like "Bearer <data>" this "Bearer <data>" is a JWT and must be sent as a Authorization header for all other requests. If it's not present, endpoints should return 401 Unauthorized. If it's present and valid, the endpoints should function as normal.
 
-## Featured endpoints
+## Featured Endpoints
 
 Please refer to the `postman_query_collection.json` for a list of endpoints and how to use them.
 
