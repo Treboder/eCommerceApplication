@@ -6,10 +6,10 @@ The project is written in Java using Spring Boot, Hibernate ORM, and the H2 data
 Unit tests ensure quality with at least 80% code coverage.
 
 The project features:
-* [Spring Boot JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+* [Spring Boot JPA data management](https://spring.io/guides/gs/accessing-data-jpa/)
 * [REST services with Spring Boot Web](https://spring.io/guides/tutorials/rest/)
-* [JUnit](https://junit.org/junit5/)
-* Logging (tbd)
+* [JUnit Testing](https://junit.org/junit5/)
+* [SLF4J Logging](https://www.slf4j.org/)
 * Docker (tbd)
 * Github Actions (tbd)
 
