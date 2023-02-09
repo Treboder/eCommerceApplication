@@ -1,4 +1,6 @@
 .idea/
+.gitignore
+ecommerce.log
 /starter_code/target/
 
 # Compiled class file
