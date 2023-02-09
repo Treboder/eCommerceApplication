@@ -9,6 +9,8 @@ The web application provides proper authentication and authorization controls so
 The project is written in Java using Spring Boot, Hibernate ORM, and the H2 database as in-memory database.
 Unit tests ensure quality with at least 80% code coverage.
 
+README.md is also available via [Github Pages](https://treboder.github.io/eCommerceApplication/)
+
 The project features:
 * [Spring Boot JPA data management](https://spring.io/guides/gs/accessing-data-jpa/)
 * [REST services with Spring Boot Web](https://spring.io/guides/tutorials/rest/)
