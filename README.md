@@ -1,4 +1,6 @@
 [![Build Maven Project](https://github.com/Treboder/eCommerceApplication/actions/workflows/maven-build.yml/badge.svg)](https://github.com/Treboder/eCommerceApplication/actions/workflows/maven-build.yml)
+[![Push image to Docker Hub](https://github.com/Treboder/eCommerceApplication/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Treboder/eCommerceApplication/actions/workflows/docker-publish.yml)
+[![Push image to GitHub Container Registry](https://github.com/Treboder/eCommerceApplication/actions/workflows/ghcr-publish.yml/badge.svg)](https://github.com/Treboder/eCommerceApplication/actions/workflows/ghcr-publish.yml)
 
 # eCommerce Application
 
@@ -12,8 +14,9 @@ The project features:
 * [REST services with Spring Boot Web](https://spring.io/guides/tutorials/rest/)
 * [JUnit Testing](https://junit.org/junit5/)
 * [SLF4J Logging](https://www.slf4j.org/)
-* Docker (tbd)
-* Github Actions (tbd)
+* [Containerization with Docker Hub image](https://hub.docker.com/r/treboder/ecommerceapplication/tags)
+* [Containerization with Github Container Registry](https://github.com/Treboder/eCommerceApplication/pkgs/container/ecommerceapplication) 
+* [CI via Github Actions](https://github.com/features/actions)
 
 ## Project Structure
 
