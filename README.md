@@ -1,3 +1,5 @@
+[![Build Maven Project](https://github.com/Treboder/eCommerceApplication/actions/workflows/maven-build.yml/badge.svg)](https://github.com/Treboder/eCommerceApplication/actions/workflows/maven-build.yml)
+
 # eCommerce Application
 
 This project demonstrates some security and DevOps skills as part of an Udacity Project. 
