@@ -1,7 +1,6 @@
 .idea/
+screenshots/
+target/
 .gitignore
 ecommerce.log
-/starter_code/target/
-
-# Compiled class file
-*.class
+LICENSE.md
